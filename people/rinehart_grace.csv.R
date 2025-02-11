@@ -1,0 +1,1 @@
+first,last,website,major,interest,hometown_lat,hometown_lng
