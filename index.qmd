@@ -11,7 +11,7 @@ people <- lapply(list.files('people', full.names = TRUE),
                  show_col_types = FALSE) |> 
   dplyr::bind_rows() |> 
   sf::st_as_sf(coords = c("hometown_lng", "hometown_lat"), crs = 4326) |>  
-   dplyr::mutate(tag = paste0("Name: <a href=", website,">", first, " ", last, 
+   dplyr::mutate(tag = paste0("Name: <a href=", website,">", firsts, " ", last, 
                               "</a><br>Major: ", major,
                               "</a><br>Interest: ", interest))
    
