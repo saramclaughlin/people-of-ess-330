@@ -5,12 +5,19 @@ page-layout: full
 
 ```{r}
 #| echo: false
+firstup <- function(x) {
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
+}
 
 people <- lapply(list.files('people', full.names = TRUE), 
                  readr::read_csv, 
                  show_col_types = FALSE) |> 
   dplyr::bind_rows() |> 
-  dplyr::mutate(website = paste0("<a href='",website,"' target='_blank'>",website,"</a>"))
+  dplyr::mutate(website = paste0("<a href='",website,"' target='_blank'>",website,"</a>"),
+                first = firstup(first),
+                last = firstup(last)) |> 
+  dplyr::arrange(last)
 
 DT::datatable(people , escape = F)
 ```
