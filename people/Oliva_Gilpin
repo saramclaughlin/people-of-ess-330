@@ -1,2 +1,10 @@
-first,last,website,major,interest,hometown_lat,hometown_lng
-Olivia,Gilpin,https://oagilpin.github.io/, Ecosystem Science and Sustainability, Environmental Research,48.8023,2.1297
+library(readr)
+
+data <- "first,last,website,major,interest,hometown_lat,hometown_lng
+Olivia,Gilpin,https://oagilpin.github.io/,Ecosystem Science and Sustainability,Environmental Research,48.8023,2.1297"
+
+# Read the data from the text
+df <- read_csv(I(data))
+
+# View the dataframe
+print(df)
